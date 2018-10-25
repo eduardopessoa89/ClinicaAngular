@@ -10,13 +10,17 @@ import { NewMedicoComponent } from './medicos/new-medico/new-medico.component';
 import{MedicoService} from './medicos/medico.service';
 import{routes} from './app-routing.module';
 import { RouterModule } from '@angular/router';
+import { ShowMedicoComponent } from './medicos/show-medico/show-medico.component';
+import { EditMedicoComponent } from './medicos/edit-medico/edit-medico.component';
 
 
 @NgModule({
   declarations: [
     AppComponent,
     ListMedicosComponent,
-    NewMedicoComponent
+    NewMedicoComponent,
+    ShowMedicoComponent,
+    EditMedicoComponent
   ],
   imports: [
     BrowserModule,
