@@ -1,0 +1,17 @@
+<p>
+  new-medico works!
+</p>
+<form #f="ngForm" (ngSubmit)="onSubmit(f.value)">
+  <div>
+    <label for="medico_name">Name: </label>
+    <input type="text" id="medico_name" name="name" ngModel> <br>
+  </div>
+  <div>
+    <label for="medico_id">Author: </label>
+    <input type="text" id="medico_id" name="id" ngModel> <br>
+  </div>
+
+  <button type="submit" id="create_medico_button">Create Medico</button>
+</form>
+
+<a [routerLink]="['/medicos']">Back</a>

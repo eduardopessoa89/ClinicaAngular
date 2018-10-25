@@ -1,0 +1,24 @@
+<p>
+  list-medicos works!
+</p>
+
+<table>
+  <thead>
+    <tr>
+      <th id="nameHeader">Name</th>
+      <th id="authorHeader">Author</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <tr *ngFor="let medico of medicos">
+      <td>{{medico.name}}</td>
+      <td>{{medico.id}}</td>
+      <td><a [routerLink]="['/medicos', medico.id]">Show</a></td>
+      <td><a [routerLink]="['/medicos', medico.id, 'edit']">Edit</a></td>
+      <td><a data-confirm="Are you sure?" rel="nofollow" data-method="delete" [routerLink]="['/medicos', medico.id]">
+        Destroy</a></td>
+    </tr>
+  </tbody>
+</table>
