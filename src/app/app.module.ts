@@ -4,6 +4,7 @@ import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
 
 import { AppComponent } from './app.component';
+import{ AppService } from './app.service';
 import { ListMedicosComponent } from './medicos/list-medicos/list-medicos.component';
 import { NewMedicoComponent } from './medicos/new-medico/new-medico.component';
 
@@ -12,7 +13,8 @@ import{routes} from './app-routing.module';
 import { RouterModule } from '@angular/router';
 import { ShowMedicoComponent } from './medicos/show-medico/show-medico.component';
 import { EditMedicoComponent } from './medicos/edit-medico/edit-medico.component';
-
+import {ApiService} from './api.service';
+import{HttpClientModule} from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -26,9 +28,10 @@ import { EditMedicoComponent } from './medicos/edit-medico/edit-medico.component
     BrowserModule,
     FormsModule,
     HttpModule,
-    RouterModule.forRoot(routes)
+    RouterModule.forRoot(routes),
+    HttpClientModule
   ],
-  providers: [MedicoService],
+  providers: [MedicoService, AppService, ApiService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

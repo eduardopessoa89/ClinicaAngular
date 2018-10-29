@@ -1,3 +1,17 @@
 <p>
-  show-medico works!
+  Mostrar Medicos
 </p>
+
+<div *ngIf="medico">
+  <p>
+    <strong>Name:</strong>
+    {{medico.name}}
+  </p>
+
+  <p>
+    <strong>Especialidade:</strong>
+    {{medico.especialidade}}
+  </p>
+  <a href="#" (click)= "edit()">Editar</a>
+  <a href="#" (click)= "back()">Voltar</a>
+</div>

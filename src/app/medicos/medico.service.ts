@@ -1,53 +1,56 @@
 import { Injectable } from '@angular/core';
-
 import { Medico } from './medico';
-
+import {AppService} from '../app.service';
+import { Subject } from 'rxjs/Subject';
+import {ApiService } from '../api.service';
+import {RequestOptions, Headers } from '@angular/http';
+import { Observable } from 'rxjs/Observable';
+ 
 @Injectable()
 export class MedicoService {
 
-  // Placeholder for last id so we can simulate
-  // automatic incrementing of id's
-  lastId = 0;
+  constructor(private appService: AppService, private apiService: ApiService) {}
 
-  // Placeholder for book's
-  medicos: Medico[] = [];
-
-  constructor() {
+  
+  add(medico): any {
+    return this.apiService.post('medicos', medico);
+    //if (!medico.id) {
+    //  medico.id = ++this.lastId;
+    //}
+    //this.medicos.push(medico);
   }
 
-  // Simulate POST /books
-  add(medico: Medico) {
-    if (!medico.id) {
-      medico.id = ++this.lastId;
-    }
-    this.medicos.push(medico);
+  
+  delete(id: number): any {
+    console.log('delete service');
+    return this.apiService.delete('medicos/', id);
   }
 
-  // Simulate DELETE /books/:id
-  delete(id: number) {
-    this.medicos = this.medicos
-      .filter(todo => todo.id !== id);
+  
+  update(newMedico: Medico, id: number) {
+    return this.apiService.put('pacientes/' + id, newMedico);
   }
 
-  // Simulate PUT /books/:id
-  update(newMedico: Medico): Medico {
-    const oldMedico = this.getById(newMedico.id);
-    if (!oldMedico) {
-      return;
-    }
-    Object.assign(oldMedico, newMedico);
-    return oldMedico;
+  
+  getAll(): any {
+    return this.apiService.getAll();
   }
 
-  // Simulate GET /books
-  getAll(): Medico[] {
-    return this.medicos;
+  
+  getById(id: any): Observable<any> {
+
+    return this.apiService.getById('pacientes', id);
+
+    //return this.medicos
+    //  .filter(todo => todo.id === id)
+    //  .pop();
+  }
+  
+  changeMessage(message: string) {
+    this.appService.changeMessage(message);
   }
 
-  // Simulate GET /books/:id
-  getById(id: number): Medico {
-    return this.medicos
-      .filter(todo => todo.id === id)
-      .pop();
+  clearMessage() {
+    this.appService.clearMessage();
   }
 }

@@ -1,4 +1,4 @@
-import { TestBed } from '@angular/core/testing';
+ng import { TestBed } from '@angular/core/testing';
 
 import { MedicoService } from './medico.service';
 

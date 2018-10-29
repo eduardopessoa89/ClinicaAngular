@@ -1,12 +1,12 @@
 <p>
-  list-medicos works!
+  Medicos
 </p>
 
 <table>
   <thead>
     <tr>
       <th id="nameHeader">Name</th>
-      <th id="authorHeader">Author</th>
+      <th id="especialidadeHeader">Especialidade</th>
       <th colspan="3"></th>
     </tr>
   </thead>
@@ -14,11 +14,12 @@
   <tbody>
     <tr *ngFor="let medico of medicos">
       <td>{{medico.name}}</td>
-      <td>{{medico.id}}</td>
-      <td><a [routerLink]="['/medicos', medico.id]">Show</a></td>
-      <td><a [routerLink]="['/medicos', medico.id, 'edit']">Edit</a></td>
-      <td><a data-confirm="Are you sure?" rel="nofollow" data-method="delete" [routerLink]="['/medicos', medico.id]">
-        Destroy</a></td>
+      <td>{{medico.especialidade}}</td>
+      <td><a href="#" (click)= "show(medico.id)">Show</a></td>
+      <td><a href="#" (click)= "edit(medico.id)" >Edit</a></td>
+      <td><a href="#" (click)= "destroy(medico.id">Destroy</a></td>
     </tr>
   </tbody>
 </table>
+
+<a [routerLink] = "['/medicos, 'new']">New Medico</a>
