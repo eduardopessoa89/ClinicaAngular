@@ -28,7 +28,7 @@ export class MedicoService {
 
   
   update(newMedico: Medico, id: number) {
-    return this.apiService.put('pacientes/' + id, newMedico);
+    return this.apiService.put('medicos/' + id, newMedico);
   }
 
   
@@ -39,7 +39,7 @@ export class MedicoService {
   
   getById(id: any): Observable<any> {
 
-    return this.apiService.getById('pacientes', id);
+    return this.apiService.getById('medicos', id);
 
     //return this.medicos
     //  .filter(todo => todo.id === id)

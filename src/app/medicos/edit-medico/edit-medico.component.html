@@ -1,17 +1,36 @@
-<h1>Editando Medico</h1>
+<div class="container-fluid"><h1>Edit Medico</h1>
 
-<form *ngIf="medico" #f="ngForm" (ngSubmit)="onSubmit(f.value)">
-  <div>
-    <label for="medico_name">Name</label> <br>
-    <input type="text" id="medico_name" name="name" [ngModel]="medico.name"> <br>
+  <form #f="ngForm" (ngSubmit)="onSubmit(f.value)">
+    <div class="form-group">
+        <label for="medico_nome">Nome</label>
+        <input type="text" class="form-control" id="medico_nome" name="nome" placeholder="Nome completo" [ngModel]= "medico_nome">
+    </div>
+    <div class="form-group">
+        <label for="medico_especialidade">Especialidade</label>
+        <input type="text" class="form-control" id="medico_especialidade" name="especialidade" placeholder="Especialidade" [ngModel]= "medico_especialidade">
+    </div>
+    <div class="form-group">
+        <label for="medico_crm">CRM</label>
+        <input type="text" class="form-control" id="medico_crm" name="crm" placeholder="Número do CRM" [ngModel]= "medico_crm">
+    </div>
+    <div class="form-group">
+        <label for="medico_cpf">CPF</label>
+        <input type="text" class="form-control" id="medico_cpf" name="cpf" placeholder="CPF" [ngModel]= "medico_cpf">
+    </div>
+    <div class="form-group">
+      <label for="medico_salaDeAtendimento">Sala de Atendimento</label>
+      <input type="text" class="form-control" id="medico_salaDeAtendimento" name="salaDeAtendimento" placeholder="Sala De Atendimento" [ngModel]= "medico_salaDeAtendimento">
   </div>
-  <div>
-    <label for="medico_name">Author</label> <br>
-    <input type="text" id="medico_especialidade" name="medico" [ngModel]="medico.especialidade"> <br>
+  <div class="form-group">
+    <label for="medico_salario">Salário</label>
+    <input type="text" class="form-control" id="medico_salario" name="salario" placeholder="Salario do Medico" [ngModel]= "medico_salario">
   </div>
-
-  <input type="submit" id="edit_medico_button" value="Update Medico">
+  <div class="form-group">
+    <label for="medico_plantao">Plantão</label>
+    <input type="text" class="form-control" id="medico_platao" name="plantao" [ngModel]= "medico_plantao">
+  </div>
+  <button type="submit" class= "btn btn-primary">Atualizar</button>
 </form>
 
-<a href="#" (click)="show()">Show</a>
-<a href="#" (click)="back()">Back</a>
+<a [routerLink]="['/medicos']">Voltar</a>
+</div>

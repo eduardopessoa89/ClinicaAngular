@@ -9,6 +9,7 @@ import { Medico } from '../medico';
   templateUrl: './new-medico.component.html',
   styleUrls: ['./new-medico.component.css']
 })
+
 export class NewMedicoComponent{
 
   constructor(private router: Router, private medicoService: MedicoService) {}
